@@ -21,11 +21,8 @@ class ProfilesController < ApplicationController
     # Note that if an email address is provided, don't update it right away.
     # Instead send a confirmation email and let that email link update the
     # email address.
-    if user_params.key?(:email) && @user.email != user_params[:email]
-      EmailVerifyMailer.email_verify(@user, user_params[:email]).deliver_now
-      user_params.delete(:email)
-      updated_email = true
-    end
+    #update note
+    user_params.reject! { |k| k == :email }
 
     if @user.update_attributes(user_params)
       message = I18n.t('profile.update_successful')
