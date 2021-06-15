@@ -33,7 +33,7 @@ module OcId
       Doorkeeper::AuthorizationsController.layout 'application'
       Doorkeeper::AuthorizedApplicationsController.layout 'application'
     end
-
+    config.public_file_server.enabled = true
     config.autoload_paths += %W(#{config.root}/lib)
     config.assets.prefix = "/id/assets"
 
