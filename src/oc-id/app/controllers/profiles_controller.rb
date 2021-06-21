@@ -1,5 +1,3 @@
-require 'pry'
-require 'pry-byebug'
 class ProfilesController < ApplicationController
   #
   # GET /id/profile
