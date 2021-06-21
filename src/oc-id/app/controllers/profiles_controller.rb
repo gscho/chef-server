@@ -1,3 +1,5 @@
+require 'pry'
+require 'pry-byebug'
 class ProfilesController < ApplicationController
   #
   # GET /id/profile
@@ -22,7 +24,7 @@ class ProfilesController < ApplicationController
     # Instead send a confirmation email and let that email link update the
     # email address.
     #update note
-    user_params.reject! { |k| k == :email }
+    params[:user].reject! { |k| k == "email" }
 
     if @user.update_attributes(user_params)
       message = I18n.t('profile.update_successful')
